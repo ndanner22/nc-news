@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,39 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.main-header {
+  display: flex;
+  text-align: left;
+  font-family: "lucida handwriting", cursive;
+  font-size: larger;
+}
+
+.list-article-img {
+  max-width: 200px;
+}
+.header-title {
+  margin: none;
+  text-align: center;
+}
+
+.nav-bar {
+  display: flex;
+  list-style-type: none;
+  border: solid;
+  border-color: red;
+  justify-content: center;
+}
+
+.nav-link {
+  margin: 10px;
+}
+
+.header-img {
+  max-height: 100px;
+}
+
+.article-list-header {
+  text-align: center;
 }
