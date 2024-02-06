@@ -136,3 +136,28 @@ button:focus-visible {
   display: flex;
   gap: 8px;
 }
+
+.comment-card {
+  border: solid;
+  margin-bottom: 3px;
+}
+
+.comment-list {
+  list-style-type: none;
+}
+
+.comments-button {
+  height: 30px;
+}
+
+.header-h1 {
+  line-height: 0%;
+}
+.header-line {
+  display: flex;
+}
+.current-user {
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+}
