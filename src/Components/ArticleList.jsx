@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getArticles } from "../utils/api";
+import { getAllArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 
 export default function ArticleList() {
@@ -7,7 +7,7 @@ export default function ArticleList() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticles().then(({ data }) => {
+    getAllArticles().then(({ data }) => {
       setArticlesData(data);
       setIsLoading(false);
     });

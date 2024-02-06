@@ -4,7 +4,7 @@ export default function ArticleCard(props) {
   const { article, articleId } = props;
 
   return (
-    <Link className="article-link" to={`/article/${articleId}`}>
+    <Link className="article-link" to={`/articles/${articleId}`}>
       <li className="article-card" article={article}>
         {article.title}
         <br />
