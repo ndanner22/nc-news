@@ -119,3 +119,20 @@ button:focus-visible {
   justify-content: center;
   text-align: center;
 }
+
+.single-article-header {
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+}
+
+.single-article {
+  text-align: center;
+}
+
+.article-byline {
+  display: flex;
+  gap: 8px;
+}

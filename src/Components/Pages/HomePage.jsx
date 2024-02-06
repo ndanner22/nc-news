@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getArticles } from "../utils/api";
-import ArticleCard from "./ArticleCard";
+import { getArticles } from "../../Utils/api";
+import ArticleCard from "../ArticleCard";
 
 export default function ArticleList() {
   const [articlesData, setArticlesData] = useState(null);
@@ -16,7 +16,7 @@ export default function ArticleList() {
 
   return (
     <>
-      <h2 className="article-list-header">Top's Top Headlines</h2>
+      <h2 className="article-list-header">Today's Top Headlines</h2>
       <section className="article-list">
         {isLoading ? (
           <h2>Loading....</h2>
