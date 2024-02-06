@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,57 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.main-header {
+  display: flex;
+  text-align: left;
+  font-family: "lucida handwriting", cursive;
+  font-size: larger;
+}
+
+.list-article-img {
+  max-width: 200px;
+}
+.header-title {
+  margin: none;
+  text-align: center;
+}
+
+.nav-bar {
+  display: flex;
+  list-style-type: none;
+  border: solid;
+  border-color: red;
+  justify-content: center;
+}
+
+.nav-link {
+  margin: 10px;
+}
+
+.header-img {
+  max-height: 100px;
+}
+
+.article-list-header {
+  text-align: center;
+}
+
+.article-card {
+  flex-grow: 1;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 250px;
+  display: inline-block;
+}
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
