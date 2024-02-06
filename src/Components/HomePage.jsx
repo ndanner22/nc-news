@@ -8,6 +8,7 @@ export default function ArticleList() {
 
   useEffect(() => {
     getArticles().then(({ data }) => {
+      data.sort((a, b) => b.created_at - a.created_at);
       setArticlesData(data);
       setIsLoading(false);
     });
@@ -15,12 +16,12 @@ export default function ArticleList() {
 
   return (
     <>
-      <h2 className="article-list-header">Articles</h2>
+      <h2 className="article-list-header">Top's Top Headlines</h2>
       <section className="article-list">
         {isLoading ? (
           <h2>Loading....</h2>
         ) : (
-          articlesData.map((article) => {
+          articlesData.slice(0, 3).map((article) => {
             return (
               <ArticleCard
                 key={article.article_id}
