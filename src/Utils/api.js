@@ -20,3 +20,13 @@ export const getCommentsByArticleId = (articleId) => {
     return { data };
   });
 };
+
+export const patchArticleVote = (articleId, newItem) => {
+  return axios
+    .patch(`https://new-engine.onrender.com/api/articles/${articleId}`, {
+      inc_votes: newItem,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
