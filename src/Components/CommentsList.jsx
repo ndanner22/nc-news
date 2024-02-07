@@ -15,6 +15,7 @@ export default function CommentsList() {
         setCommentsData(data.data);
         setIsLoading(false);
       })
+      .then(() => console.log(commentsData))
       .catch(({ response }) => {
         setError(response);
         setIsLoading(false);
@@ -33,10 +34,12 @@ export default function CommentsList() {
       <section className="comment-list">
         {isLoading ? (
           <h2>Loading....</h2>
-        ) : (
+        ) : commentsData.length > 0 ? (
           commentsData.map((comment) => {
             return <CommentCard key={comment.comment_id} comment={comment} />;
           })
+        ) : (
+          <h3>Be the first to comment</h3>
         )}
       </section>
     </>
