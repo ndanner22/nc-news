@@ -161,3 +161,14 @@ button:focus-visible {
   right: 0;
   padding-right: 10px;
 }
+
+.article-votes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote-button {
+  margin-right: 3px;
+  margin-left: 3px;
+}

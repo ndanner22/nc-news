@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function commentCard(props) {
+export default function CommentCard(props) {
   const { comment } = props;
 
   return (
