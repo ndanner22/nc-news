@@ -1,6 +1,12 @@
 import HeaderTitle from "./HeaderTitle";
-import User from "./User";
-export default function Header() {
+import { useContext } from "react";
+import { UserContext } from "./Contexts/UserContext";
+import { Link } from "react-router-dom";
+
+export default function Header(props) {
+  const { loggedInUser } = useContext(UserContext);
+  const { value } = props;
+
   return (
     <section className="header-line">
       <header className="main-header">
@@ -10,7 +16,15 @@ export default function Header() {
         />
         <HeaderTitle />
       </header>
-      <User />
+      <div className="current-user">
+        <p>
+          User:{" "}
+          <Link className="change-user-link" to={"/change-user"}>
+            {" "}
+            {loggedInUser.username}
+          </Link>
+        </p>
+      </div>
     </section>
   );
 }

@@ -62,3 +62,11 @@ export const postArticleComment = (articleId, newItem) => {
       return `${response.data.status}: comments can't be updated at the moment`;
     });
 };
+
+export const getAllUsers = () => {
+  return axios
+    .get("https://new-engine.onrender.com/api/users")
+    .then(({ data }) => {
+      return { data };
+    });
+};
