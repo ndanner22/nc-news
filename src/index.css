@@ -200,3 +200,6 @@ button:focus-visible {
 .comment-submit-button {
   height: 30px;
 }
+.user-avatar {
+  max-width: 100px;
+}
