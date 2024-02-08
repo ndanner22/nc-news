@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getCommentsByArticleId } from "../Utils/api";
-import { useParams } from "react-router-dom";
+import { getCommentsByArticleId, postArticleComment } from "../Utils/api";
+import { useParams, Link } from "react-router-dom";
 import CommentCard from "./CommentCard";
 
 export default function CommentsList() {
@@ -8,6 +8,29 @@ export default function CommentsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const { article_id } = useParams();
+  const [showAddComment, setShowAddComment] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  function handleClick() {
+    setShowAddComment(!showAddComment);
+  }
+
+  function handleChange(event) {
+    setInputValue(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    postArticleComment(article_id, inputValue)
+      .then(({ new_comment }) => {
+        setShowAddComment(!showAddComment);
+        setInputValue("");
+        setCommentsData([new_comment, ...commentsData]);
+      })
+      .catch((err) => {
+        setError("Cannot currently post a comment");
+      });
+  }
 
   useEffect(() => {
     getCommentsByArticleId(article_id)
@@ -15,7 +38,6 @@ export default function CommentsList() {
         setCommentsData(data.data);
         setIsLoading(false);
       })
-      .then(() => console.log(commentsData))
       .catch(({ response }) => {
         setError(response);
         setIsLoading(false);
@@ -31,6 +53,29 @@ export default function CommentsList() {
   return (
     <>
       <h2 className="article-list-header">-Comments-</h2>
+      <button onClick={handleClick} className="new-comment-button">
+        {showAddComment ? "Hide New Comment" : "Add New Comment"}
+      </button>
+      {showAddComment ? (
+        <form onSubmit={handleSubmit}>
+          <div className="new-comment-container">
+            <label htmlFor="new-comment-text">Comment:</label>
+            <br />
+            <textarea
+              type="text"
+              placeholder="Text here..."
+              className="new-comment-box"
+              value={inputValue}
+              onChange={handleChange}
+              required
+            />
+            <button className="comment-submit-button" type="submit">
+              Submit
+            </button>
+            <br />
+          </div>
+        </form>
+      ) : null}
       <section className="comment-list">
         {isLoading ? (
           <h2>Loading....</h2>
@@ -39,7 +84,9 @@ export default function CommentsList() {
             return <CommentCard key={comment.comment_id} comment={comment} />;
           })
         ) : (
-          <h3>Be the first to comment</h3>
+          <>
+            <h3>Be the first to comment</h3>
+          </>
         )}
       </section>
     </>
