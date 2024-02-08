@@ -172,3 +172,31 @@ button:focus-visible {
   margin-right: 3px;
   margin-left: 3px;
 }
+
+.new-comment-box {
+  width: 350px;
+  height: auto;
+  min-height: 30px;
+  margin-top: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  line-height: 1;
+  overflow: auto;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.new-comment-button {
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.new-comment-container {
+  display: flex;
+  align-items: center;
+}
+
+.comment-submit-button {
+  height: 30px;
+}
