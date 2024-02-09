@@ -49,11 +49,11 @@ export const patchArticleVote = (articleId, newItem) => {
     });
 };
 
-export const postArticleComment = (articleId, newItem) => {
+export const postArticleComment = (articleId, loggedInUser, newItem) => {
   return axios
     .post(
       `https://new-engine.onrender.com/api/articles/${articleId}/comments`,
-      { username: "grumpy19", body: newItem }
+      { username: loggedInUser, body: newItem }
     )
     .then(({ data }) => {
       return data;
@@ -69,4 +69,10 @@ export const getAllUsers = () => {
     .then(({ data }) => {
       return { data };
     });
+};
+
+export const deleteComment = (commentId) => {
+  return axios.delete(
+    `https://new-engine.onrender.com/api/comments/${commentId}`
+  );
 };

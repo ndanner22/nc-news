@@ -3,7 +3,7 @@ import { UserContext } from "./Contexts/UserContext";
 
 const UserCard = ({ user }) => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-  console.log(loggedInUser);
+
   return (
     <div className="UserCard">
       <h2>{user.username}</h2>
