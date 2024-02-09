@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getCommentsByArticleId, postArticleComment } from "../Utils/api";
 import { useParams, Link } from "react-router-dom";
 import CommentCard from "./CommentCard";
+import { UserContext } from "./Contexts/UserContext";
 
 export default function CommentsList() {
   const [commentsData, setCommentsData] = useState(null);
@@ -10,6 +11,7 @@ export default function CommentsList() {
   const { article_id } = useParams();
   const [showAddComment, setShowAddComment] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const { loggedInUser } = useContext(UserContext);
 
   function handleClick() {
     setShowAddComment(!showAddComment);
@@ -21,7 +23,7 @@ export default function CommentsList() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    postArticleComment(article_id, inputValue)
+    postArticleComment(article_id, loggedInUser.username, inputValue)
       .then(({ new_comment }) => {
         setShowAddComment(!showAddComment);
         setInputValue("");

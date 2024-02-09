@@ -203,3 +203,8 @@ button:focus-visible {
 .user-avatar {
   max-width: 100px;
 }
+
+.comment-delete-button {
+  background-color: blue;
+  color: white;
+}
