@@ -76,3 +76,15 @@ export const deleteComment = (commentId) => {
     `https://new-engine.onrender.com/api/comments/${commentId}`
   );
 };
+
+export const getArticlesByCategory = (category) => {
+  const baseUrl = `https://new-engine.onrender.com/api/articles?topic=${category}`;
+  return axios
+    .get(baseUrl)
+    .then(({ data }) => {
+      return { data };
+    })
+    .catch(({ response }) => {
+      return `${response.data.status}: articles can't load`;
+    });
+};
