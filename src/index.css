@@ -208,3 +208,7 @@ button:focus-visible {
   background-color: blue;
   color: white;
 }
+
+.category-header {
+  text-align: center;
+}
