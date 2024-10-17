@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllArticles } from "../../Utils/api";
 import ArticleCard from "../ArticleCard";
+import { ClipLoader } from "react-spinners";
 
 export default function ArticleList() {
   const [articlesData, setArticlesData] = useState(null);
@@ -19,7 +20,11 @@ export default function ArticleList() {
       <h2 className="article-list-header">Today's Top Headlines</h2>
       <section className="article-list">
         {isLoading ? (
-          <h2>Loading....</h2>
+          <>
+            <div className="spinner">
+              <ClipLoader color="#36D7B7" loading={isLoading} size={30} />
+            </div>
+          </>
         ) : (
           articlesData.slice(0, 3).map((article) => {
             return (
